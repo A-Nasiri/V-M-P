@@ -1,0 +1,37 @@
+:root {
+    --body-bg: #333333;
+    --text-light: #FFFFFF;
+
+    --focus-line: 2px solid #FFD700;
+    --button-focus-bg: #FFD700;  
+  }
+  
+
+  $bp-medium: 56.25em;   // 900px
+  $bp-small: 37.5em;     // 600px
+
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
+  }
+  
+  body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    background: var(--body-bg);
+    min-height: 100vh;
+    color: var(--text-light);
+  }
