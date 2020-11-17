@@ -1,5 +1,6 @@
 <template>
   <div class="player">
+    <h1>{{ movie.title }}</h1>
     <video-player :options="videoOptions" />
   </div>
 </template>
@@ -44,9 +45,20 @@ export default {
 
 <style lang="scss" scoped>
 .player {
-  max-height: 500px;
+  max-height: 700px;
   width: 100%;
   max-width: 1000px;
   margin: 3rem auto;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 2rem;
+
+  h1 {
+    margin: 1rem 0;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 1rem;
+  }
 }
 </style>

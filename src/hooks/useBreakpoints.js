@@ -7,13 +7,12 @@ export default function useBreakpoints() {
   onMounted(() => window.addEventListener('resize', onWidthChange));
   onUnmounted(() => window.removeEventListener('resize', onWidthChange));
 
-  const type = computed(() => {
-    if (windowWidth.value < 550) return 'xs';
-    if (windowWidth.value > 549 && windowWidth.value < 1200) return 'md';
-    if (windowWidth.value > 1199) return 'lg';
+  const indexToCut = computed(() => {
+    if (windowWidth.value > 550 && windowWidth.value < 860) return 8;
+    if (windowWidth.value > 860) return 7;
   });
 
   const width = computed(() => windowWidth.value);
 
-  return { width, type };
+  return { width, indexToCut };
 }

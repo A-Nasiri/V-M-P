@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <div v-if="isLoading">
-      <loader></loader>
+    <div class="loader" v-if="isLoading">
+      <loader />
     </div>
     <carousel
       v-else-if="hasMovies"
@@ -14,7 +14,7 @@
         <movie-card :item="item" />
       </template>
     </carousel>
-    <h1 v-else>No Movies Found...</h1>
+    <h1 class="error-message" v-else>No Movies Found...</h1>
   </div>
 </template>
 
@@ -24,16 +24,18 @@ import { useStore } from 'vuex';
 
 import MovieCard from '../components/movies/MovieCard.vue';
 import Carousel from '../components/carousel/Carousel.vue';
+import Loader from '../components/loader/Loader.vue';
 
 export default {
   name: 'Home',
   components: {
     Carousel,
-    MovieCard
+    MovieCard,
+    Loader
   },
   setup() {
     const store = useStore();
-    const isLoading = ref(false);
+    const isLoading = ref(true);
     const error = ref(null);
     //function to reach out to the store and fetch the movies from the API
     const fetchMovies = async () => {

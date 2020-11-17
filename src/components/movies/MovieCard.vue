@@ -92,6 +92,7 @@ export default {
         rgba(72, 76, 97, 0.8) 75%
       );
       content: '';
+      border: var(--focus-line);
       opacity: 0;
       -webkit-transform: translate3d(0, 50%, 0);
       transform: translate3d(0, 50%, 0);

@@ -58,7 +58,7 @@ export default {
   }
 
   @media (max-width: 960px) {
-    width: 24px;
+    width: 40px;
 
     &::before {
       width: 14px;
@@ -100,7 +100,7 @@ export default {
   }
 
   @media (max-width: 960px) {
-    width: 24px;
+    width: 40px;
 
     &::before {
       width: 14px;

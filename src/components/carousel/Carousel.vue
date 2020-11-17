@@ -10,13 +10,18 @@
       v-if="currentIndex > 0"
       @click="changeIndex('prev')"
     />
-    <carousel-control mode="right" @click="changeIndex('next')" />
+    <carousel-control
+      v-if="getCutoffIndex"
+      mode="right"
+      @click="changeIndex('next')"
+    />
   </div>
 </template>
 
 <script>
 import { computed, ref, reactive, onMounted } from 'vue';
 import CarouselControl from './CarouselControl';
+import useBreakpoints from '../../hooks/useBreakpoints';
 
 export default {
   name: 'Carousel',
@@ -67,6 +72,8 @@ export default {
       }
     };
 
+    const { indexToCut } = useBreakpoints();
+
     onMounted(() => {
       element.value.addEventListener('touchstart', (event) =>
         touchstart(event)
@@ -81,13 +88,20 @@ export default {
       };
     });
 
+    //Not complete...
+    const getCutoffIndex = computed(() => {
+      if (props.currentIndex !== indexToCut.value) return true;
+    });
+
     return {
       listPosition,
       element,
       touchend,
       touchstart,
       touchmove,
-      changeIndex
+      changeIndex,
+      indexToCut,
+      getCutoffIndex
     };
   }
 };
